@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Control</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    
+</head>
+
+<body>
+
+    <!-- <div>
+    <section>
+        <h2>Resumo de Caixa</h2>
+        <p>Entradas: R$ <span id="totalEntradas">0.00</span></p>
+        <p>Saídas: R$ <span id="totalSaidas">0.00</span></p>
+        <p><strong>Saldo: R$ <span id="saldo">0.00</span></strong></p>
+    </section>
+</div> -->
+    <div class="resumo-cards">
+        <div class="card entrada">
+            <h3>Entradas</h3>
+            <p>R$ <span id="totalEntradas">0.00</span></p>
+        </div>
+
+        <div class="card saida">
+            <h3>Saídas</h3>
+            <p>R$ <span id="totalSaidas">0.00</span></p>
+        </div>
+
+        <div class="card saldo">
+            <h3>Saldo</h3>
+            <p>R$ <span id="saldo">0.00</span></p>
+        </div>
+    </div>
+    <!-- <div>
+        <section>
+            <h2>Nova Movimentação</h2>
+
+            <input type="date" id="data">
+
+            <select id="categoria">
+                <option value="Salário">Salário</option>
+                <option value="Freelance">Freelance</option>
+                <option value="Moradia">Moradia</option>
+                <option value="Alimentação">Alimentação</option>
+                <option value="Transporte">Transporte</option>
+                <option value="Lazer">Lazer</option>
+                <option value="Saúde">Saúde</option>
+                <option value="Outros">Outros</option>
+            </select>
+
+            <input type="text" id="descricao" placeholder="Descrição">
+            <input type="number" id="valor" placeholder="Valor">
+
+            <select id="tipo">
+                <option value="entrada">Entrada</option>
+                <option value="saida">Saída</option>
+            </select>
+
+            <button onclick="adicionarMovimentacao()">Adicionar</button>
+        </section>
+    </div> -->
+
+
+    <!-- NOVA MOVIMENTAÇÃO -->
+
+
+    <div class="nova-movimentacao-container">
+        <section class="nova-movimentacao">
+
+            <h2 class="titulo-movimentacao">Nova Movimentação</h2>
+
+            <input type="date" id="data" class="input-padrao">
+
+            <select id="categoria" class="input-padrao">
+                <option value="Salário">Salário</option>
+                <option value="Freelance">Freelance</option>
+                <option value="Moradia">Moradia</option>
+                <option value="Alimentação">Alimentação</option>
+                <option value="Transporte">Transporte</option>
+                <option value="Lazer">Lazer</option>
+                <option value="Saúde">Saúde</option>
+                <option value="Outros">Outros</option>
+            </select>
+
+            <input type="text" id="descricao" placeholder="Descrição" class="input-padrao">
+
+            <input type="number" id="valor" placeholder="Valor" step="0.01" class="input-padrao">
+
+            <select id="tipo" class="input-padrao">
+                <option value="entrada">Entrada</option>
+                <option value="saida">Saída</option>
+            </select>
+
+            <button onclick="adicionarMovimentacao()" class="btn-adicionar">
+                Adicionar
+            </button>
+
+        </section>
+    </div>
+    <!-- <div>
+        <section>
+            <h2>Histórico de Movimentações</h2>
+            <div style="display: flex; gap: 40px;">
+
+                <div>
+                    <h3>Entradas</h3>
+                    <ul id="listaEntradas"></ul>
+                </div>
+
+                <div>
+                    <h3>Saídas</h3>
+                    <ul id="listaSaidas"></ul>
+                </div>
+
+            </div>
+        </section>
+    </div> -->
+
+
+    <div class="historico-container">
+        <section class="historico">
+
+            <h2 class="titulo-historico">Histórico de Movimentações</h2>
+
+            <div class="listas-movimentacoes">
+
+                <div class="bloco-entradas">
+                    <h3>Entradas</h3>
+                    <ul id="listaEntradas" class="lista-movimentacoes"></ul>
+                </div>
+
+                <div class="bloco-saidas">
+                    <h3>Saídas</h3>
+                    <ul id="listaSaidas" class="lista-movimentacoes"></ul>
+                </div>
+
+            </div>
+
+        </section>
+    </div>
+
+    <!-- <div>
+        <section>
+            <h1>Total de movimentações </h1>
+            <p id="totalMovimentacoes">0</p>
+
+            <h2>Categoria</h2>
+            <ul id="listaCategorias"></ul>
+            <h2>Data</h2>
+            <ul id="listaDatas"></ul>
+
+            <button onclick="limparCaixa()">Limpar Caixa</button>
+        </section>
+    </div> -->
+
+
+    <div class="total-container">
+        <section class="total-section">
+
+            <h1 class="titulo-total">Total de Movimentações</h1>
+            <p id="totalMovimentacoes" class="numero-total">0</p>
+
+            <div class="info-blocos">
+
+                <div class="bloco-categorias">
+                    <h2>Categoria</h2>
+                    <ul id="listaCategorias" class="lista-info"></ul>
+                </div>
+
+                <div class="bloco-datas">
+                    <h2>Data</h2>
+                    <ul id="listaDatas" class="lista-info"></ul>
+                </div>
+
+            </div>
+
+            <button onclick="limparCaixa()" class="btn-limpar">
+                Limpar Caixa
+            </button>
+
+        </section>
+    </div>
+
+    <div>
+        <div class="grafico-container">
+            <section class="grafico-section">
+                <h2>Resumo Financeiro</h2>
+                <canvas id="graficoFinanceiro"></canvas>
+            </section>
+        </div>
+    </div>
+    <!-- Importa o JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

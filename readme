@@ -1,0 +1,90 @@
+README
+
+📊 Finance Control Web
+📌 Descrição
+
+O Finance Control Web é uma plataforma web de gestão financeira pessoal que permite ao usuário controlar saldo em caixa, registrar contas a pagar, acompanhar pagamentos e visualizar a situação financeira através de gráficos dinâmicos.
+
+🎯 Objetivo
+
+Fornecer uma ferramenta simples, visual e eficiente para organização financeira mensal.
+
+🚀 Funcionalidades
+
+Cadastro e Login de usuários ✔ pagina inicial criada porem ainda nao conectado com  banco de dados
+
+Controle de saldo em caixa
+
+Registro de contas a pagar
+
+Separação automática:
+
+Pagas
+
+Pendentes
+
+Atrasadas
+
+Filtro por mês
+
+Dashboard com indicadores financeiros
+
+Gráficos de análise financeira
+
+
+🧱 Tecnologias Utilizadas
+
+Front-end:
+
+HTML
+
+CSS
+
+JavaScript
+
+Gráficos:
+
+Chart.js
+
+Back-end (planejado):
+
+Node.js
+
+Express
+
+PostgreSQL
+
+🗂 Estrutura do Projeto
+/src
+   /css
+   /js
+   /pages
+/server
+/database
+📊 Regras de Negócio
+
+O sistema calcula automaticamente o total das contas do mês.
+
+Contas com vencimento passado e não pagas são classificadas como atrasadas.
+
+O saldo projetado considera o valor em caixa menos as contas pendentes.
+
+🔒 Segurança
+
+Senhas armazenadas com hash.
+
+Rotas protegidas por autenticação.
+
+Dados isolados por usuário.
+
+📈 Melhorias Futuras
+
+Controle de receitas
+
+Relatórios PDF
+
+Exportação para Excel
+
+Metas financeiras
+
+Controle anual

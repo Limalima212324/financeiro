@@ -1,0 +1,219 @@
+/* Layout Base (Container Central) */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 20px;
+}
+
+section {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+/* Cards do Resumo (Entradas | Saídas | Saldo) */
+
+.resumo-cards {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;   
+}
+
+.card {
+    flex: 1;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+}
+
+.entrada {
+    background-color: #2ecc71;
+}
+
+.saida {
+    background-color: #e74c3c;
+}
+
+.saldo {
+    background-color: 3498db;
+}
+
+.nova-movimentacao-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.nova-movimentacao {
+    background: #fff;
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.titulo-movimentacao {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-padrao {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.btn-adicionar {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.historico-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.historico {
+    width: 100%;
+    max-width: 900px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.titulo-historico {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.listas-movimentacoes {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+}
+
+.bloco-entradas,
+.bloco-saidas {
+    flex: 1;
+}
+
+.bloco-entradas h3 {
+    color: #2e7d32;
+}
+
+.bloco-saidas h3 {
+    color: #c62828;
+}
+
+.lista-movimentacoes {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-movimentacoes li {
+    background: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.total-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.total-section {
+    width: 100%;
+    max-width: 900px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.titulo-total {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.numero-total {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.info-blocos {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.bloco-categorias,
+.bloco-datas {
+    flex: 1;
+}
+
+.lista-info {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-info li {
+    background: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.btn-limpar {
+    width: 100%;
+    padding: 12px;
+    background-color: #c62828;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-limpar:hover {
+    background-color: #b71c1c;
+}
+
+
+/* GRÁFICO DE INFORMAÇÕES COM CHART.JS */
+
+.grafico-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.grafico-section {
+    width: 100%;
+    max-width: 900px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
