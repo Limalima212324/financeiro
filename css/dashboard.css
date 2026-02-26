@@ -26,8 +26,12 @@ section {
 .card {
     flex: 1;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 40px 5px;
     color: white;
+    font-size: 22.5px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+
 }
 
 .entrada {
@@ -39,7 +43,7 @@ section {
 }
 
 .saldo {
-    background-color: 3498db;
+    background-color: #3F88D1;
 }
 
 .nova-movimentacao-container {
