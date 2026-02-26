@@ -67,26 +67,29 @@ button {
     cursor: pointer;
 
     /* animação suave */
-    transition: transform 0.2s, background-color 0.2s ease; /* Adiciona uma transição suave para a transformação e a mudança de cor */
+    transition: transform 0.2s, background-color 0.2s ease;
+    /* Adiciona uma transição suave para a transformação e a mudança de cor */
 
     /* sombra base */
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra leve para dar profundidade */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    /* Adiciona uma sombra leve para dar profundidade */
 }
 
 button:hover {
     background-color: #9AC8F5;
 
 
-     /* sobe 4px */
-     transform: translateY(-4px);   
+    /* sobe 4px */
+    transform: translateY(-4px);
 
     /* sombra aumenta para dar profundidade */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Aumenta a sombra para dar mais destaque ao botão */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    /* Aumenta a sombra para dar mais destaque ao botão */
 }
 
 
 #usuario,
- #senha {
+#senha {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -94,20 +97,30 @@ button:hover {
     border: 1px solid #ccc;
 
     /* animação suave */
-    transition: transform 0.2s ease; /* Adiciona uma transição suave para a transformação */
+    transition: transform 0.2s ease;
+    /* Adiciona uma transição suave para a transformação */
+
+    /* sombra aumenta para dar profundidade */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    /* Aumenta a sombra para dar mais destaque ao botão */
+
 }
 
 
 /* # é usado para selecionar um elemento pelo id. */
 #usuario:hover,
 #senha:hover {
-    transform: translateY(-5px); /* Sobe 3px ao passar o mouse */
+    background-color: #9AC8F5;
+
+    transform: translateY(-5px);
+    /* Sobe 3px ao passar o mouse */
 }
 
 #usuario:focus,
 #senha:focus {
     outline: none;
-    transform: translateY(-5px); /* Sobe 3px ao passar o mouse */
+    transform: translateY(-5px);
+    /* Sobe 3px ao passar o mouse */
 }
 
 
