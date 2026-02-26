@@ -11,13 +11,14 @@
     --cor-secundaria: #1f5f3a;
     --cor-clara: #f4f4f4;
     --cor-texto: #333;
-    --cor-extra: rgb(46, 138, 231);
+    --cor-extra: #9ac8f5;
 
 }
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: var(--cor-extra);
+    /* background-color: var(--cor-extra); */
+    background: linear-gradient(90deg, rgba(154, 200, 245, 1) 0%, rgba(63, 136, 209, 1) 27%, rgba(24, 86, 148, 1) 64%, rgba(16, 71, 125, 1) 88%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,14 +29,21 @@ body {
     background-color: white;
     padding: 100px;
     /* Aumentado para 30px */
-    border-radius: 20px;
+    border-radius: 30% 15px;
     width: 500px;
+    border: solid 5px #9AC8F5;
+    box-shadow: #3F88D1 0px 8px 16px 0px;
 }
 
 .login-container h2 {
+    font-family: 'Times New Roman', Times, serif;
+    padding: 5px;
+    border-radius: 15px 5px;
     text-align: center;
     margin-bottom: 50px;
     margin-top: -10px;
+    box-shadow: #3F88D1 0px 2px 4px 0px;
+
 }
 
 input {
@@ -54,13 +62,52 @@ input {
 button {
     width: 90px;
     padding: 10px;
-    background-color: var(--cor-principal);
+    background-color: white;
     border-radius: 5px;
     cursor: pointer;
+
+    /* animação suave */
+    transition: transform 0.2s, background-color 0.2s ease; /* Adiciona uma transição suave para a transformação e a mudança de cor */
+
+    /* sombra base */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra leve para dar profundidade */
 }
 
 button:hover {
-    background-color: var(--cor-texto);
+    background-color: #9AC8F5;
+
+
+     /* sobe 4px */
+     transform: translateY(-4px);   
+
+    /* sombra aumenta para dar profundidade */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Aumenta a sombra para dar mais destaque ao botão */
+}
+
+
+#usuario,
+ #senha {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+
+    /* animação suave */
+    transition: transform 0.2s ease; /* Adiciona uma transição suave para a transformação */
+}
+
+
+/* # é usado para selecionar um elemento pelo id. */
+#usuario:hover,
+#senha:hover {
+    transform: translateY(-5px); /* Sobe 3px ao passar o mouse */
+}
+
+#usuario:focus,
+#senha:focus {
+    outline: none;
+    transform: translateY(-5px); /* Sobe 3px ao passar o mouse */
 }
 
 
