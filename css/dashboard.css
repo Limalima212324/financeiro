@@ -322,6 +322,21 @@ section {
 }
 
 
+.btn-excluir {
+    background-color: transparent; /* Remove o fundo cinza padrão */
+    border: none;                  /* Remove a borda */
+    font-size: 18px;               /* Aumenta um pouco o ícone */
+    cursor: pointer;               /* Faz o mouse virar a "mãozinha" */
+    padding: 5px 10px;
+    transition: transform 0.2s, color 0.2s; /* Suaviza as mudanças */
+}
+
+/* Efeito ao passar o mouse */
+.btn-excluir:hover {
+    color: #c62828;      /* Muda a cor (se for ícone de fonte) */
+    transform: scale(1.2); /* Dá um leve "pulo" para destacar */
+}
+
 /* GRÁFICO DE INFORMAÇÕES COM CHART.JS */
 
 .grafico-container {
@@ -360,4 +375,38 @@ section {
 .classe-saida {
     border-left: 5px solid #c62828; /* Barra vermelha grossa na esquerda */
     background-color: #ffeeee !important; /* Um fundo vermelho bem clarinho */
+}
+
+.container-busca {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+#inputBusca {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#inputBusca:focus {
+    border-color: #3F88D1; /* Cor azul que você já usa */
+    box-shadow: 0 0 5px rgba(63, 136, 209, 0.2);
+}
+
+.container-busca {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+#inputBusca {
+    width: 100%;
+    padding: 12px 12px 12px 40px; /* Espaço na esquerda para a lupa */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%23999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>');
+    background-repeat: no-repeat;
+    background-position: 12px center; /* Posiciona a lupa */
 }

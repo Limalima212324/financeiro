@@ -128,15 +128,40 @@ if (window.location.pathname.includes("page.html")) { // Segurança: só permite
 // 🗑️ 4.1️⃣ FUNÇÃO EXCLUIR MOVIMENTAÇÃO INDIVIDUAL
 // =====================================================
 window.excluirMovimentacao = function (id) {
-    // Filtra para remover o item com o ID clicado
-    movimentacoes = movimentacoes.filter(mov => mov.id !== id);
+    // 1. Abre a caixa de confirmação e guarda a resposta
+    const desejaExcluir = confirm("Você tem certeza que deseja excluir esta movimentação?");
 
-    // Salva a nova lista no localStorage
-    localStorage.setItem("movimentacoes", JSON.stringify(movimentacoes));
+    // 2. Só prossegue se a resposta for verdadeira (clique no OK)
+    if (desejaExcluir) {
+        // Remove o item do array
+        movimentacoes = movimentacoes.filter(mov => mov.id !== id); /* Filtro para remover o item com o ID correspondente */
 
-    // Atualiza a tela para refletir a mudança
-    atualizarInterface();
+        // Atualiza o banco de dados local
+        localStorage.setItem("movimentacoes", JSON.stringify(movimentacoes)); /* Salva o array atualizado no localStorage */
+
+        // Renderiza a lista novamente
+        atualizarInterface();
+    }
 };
+
+// ... (outras funções)
+
+// Lógica da Busca
+const inputBusca = document.getElementById("inputBusca");
+
+inputBusca.addEventListener("input", () => {
+    const termoBusca = inputBusca.value.toLowerCase();
+
+    // Filtra as movimentações que contêm o termo na descrição OU na categoria
+    const movimentacoesFiltradas = movimentacoes.filter(mov => 
+        mov.descricao.toLowerCase().includes(termoBusca) || 
+        mov.categoria.toLowerCase().includes(termoBusca)
+    );
+
+    // Agora precisamos mandar essa lista filtrada para a tela
+    atualizarInterface(movimentacoesFiltradas); 
+});
+
 
 // ... segue para a função atualizarInterface ...
 
