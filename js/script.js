@@ -122,6 +122,23 @@ if (window.location.pathname.includes("page.html")) { // Segurança: só permite
         }
     };
 
+    // ... código anterior da função limparCaixa ...
+
+// =====================================================
+// 🗑️ 4.1️⃣ FUNÇÃO EXCLUIR MOVIMENTAÇÃO INDIVIDUAL
+// =====================================================
+window.excluirMovimentacao = function (id) {
+    // Filtra para remover o item com o ID clicado
+    movimentacoes = movimentacoes.filter(mov => mov.id !== id);
+
+    // Salva a nova lista no localStorage
+    localStorage.setItem("movimentacoes", JSON.stringify(movimentacoes));
+
+    // Atualiza a tela para refletir a mudança
+    atualizarInterface();
+};
+
+// ... segue para a função atualizarInterface ...
 
     // =====================================================
     // 🔄 5️⃣ FUNÇÃO ATUALIZAR INTERFACE
@@ -158,7 +175,38 @@ if (window.location.pathname.includes("page.html")) { // Segurança: só permite
                 totalSaidas += mov.valor;
             }
 
+
             // 🔹 Cria item visual
+            let item = document.createElement("li"); /*🔹 Cria item visual*/
+
+            // Adicionamos estas linhas para o CSS funcionar:
+            if (mov.tipo === "entrada") {
+                item.classList.add("classe-entrada"); // 🟢
+            } else {
+                item.classList.add("classe-saida");   // 🔴
+            }
+
+          item.innerHTML = `
+    <span class="info-data">${mov.data}</span>
+    <span class="info-descricao">${mov.descricao}</span>
+    <span class="info-categoria">${mov.categoria}</span>
+    <span class="info-valor">R$ ${mov.valor.toFixed(2)}</span>
+    <button class="btn-excluir" onclick="excluirMovimentacao(${mov.id})">🗑️</button>
+`;
+
+
+
+//  o span vai dar uma quebra no texto criando espaçamento entre os campos, e as classes info-data, info-descricao, etc, permitem estilizar cada parte individualmente no CSS. Assim, o layout fica mais organizado e visualmente agradável.
+
+
+
+    //         item.innerHTML = `
+    // ${mov.data} | 
+    // ${mov.descricao} | 
+    // ${mov.categoria} |
+    // R$ ${mov.valor.toFixed(2)} 
+
+            /*🔹 Cria item visual
             let item = document.createElement("li");
 
             item.innerHTML = `
@@ -166,7 +214,9 @@ if (window.location.pathname.includes("page.html")) { // Segurança: só permite
                 ${mov.descricao} | 
                 ${mov.categoria} | 
                 R$ ${mov.valor.toFixed(2)}
-            `;
+            `;*/
+
+
 
             // 🔹 Adiciona na lista correta
             if (mov.tipo === "entrada") {

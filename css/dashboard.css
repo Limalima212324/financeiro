@@ -1,3 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
 /* Layout Base (Container Central) */
 
 body {
@@ -15,12 +22,62 @@ section {
     box-shadow: 0 4px 8px rgba(0,0,0,0.05);
 }
 
+
+/* dashboard-header */
+/* 1. O Painel Principal (Container) */
+.dashboard-header {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    height: 50px;
+    
+    /* Seu Estilo Visual */
+    background: linear-gradient(90deg, rgba(154, 200, 245, 1) 0%, rgba(63, 136, 209, 1) 27%, rgba(24, 86, 148, 1) 64%, rgba(16, 71, 125, 1) 88%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-bottom: 2px solid #9ac8f5; /* Corrigi de border-radius para border-bottom */
+
+    /* Posicionamento */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box; /* Garante que o padding não quebre o layout */
+    padding: 0 20px; 
+}
+
+/* 2. As três "fatias" iguais (Esquerda, Centro, Direita) */
+.header-left, .header-center, .header-right {
+    flex: 1; /* Cada uma ocupa exatamente 33.3% da largura */
+    display: flex;
+    align-items: center;
+    color: white; /* Cor para os textos se destacarem no azul */
+}
+
+/* 3. Alinhamento de cada fatia */
+.header-left {
+    justify-content: flex-start; /* Gruda na esquerda */
+}
+
+.header-center {
+    justify-content: center; /* O segredo: centraliza a data no meio da tela */
+}
+
+.header-right {
+    justify-content: flex-end; /* Gruda na direita */
+}
+
+/* Ajuste fino para o h1 não bagunçar o tamanho */
+.header-left h1 {
+    font-size: 1.2rem;
+    margin: 0;
+}
 /* Cards do Resumo (Entradas | Saídas | Saldo) */
 
 .resumo-cards {
     display: flex;
     gap: 20px;
-    margin-bottom: 20px;   
+    margin-bottom: 20px;
+    margin-top: 50px;   
 }
 
 .card {
@@ -34,16 +91,35 @@ section {
 
 }
 
+
+.resumo-cards .card h3 {
+    font-size: 16px;     /* Tamanho discreto para o rótulo */
+    font-weight: 500;    /* Nem tão fino, nem tão grosso */
+    margin-bottom: 8px;  /* Espaço para não "grudar" no valor */
+    text-transform: uppercase; /* Opcional: deixa o título em letras maiúsculas */
+    letter-spacing: 1px; /* Dá um respiro entre as letras */
+}
+
+.card p {
+    font-size: 20px;     /* Valor bem grande e visível */
+    font-weight: bold;   /* Destaque máximo */
+    margin: 0;           /* Remove margens extras do parágrafo */
+}
+
+
 .entrada {
     background-color: #2ecc71;
+    box-shadow: 0 8px 15px rgba(39, 174, 96, 0.7) /* Sombra verde suave para o card de entradas */
 }
 
 .saida {
     background-color: #e74c3c;
+    box-shadow: 0 8px 15px rgba(231, 76, 60, 0.5) /* Sombra vermelha suave para o card de saídas */;
 }
 
 .saldo {
     background-color: #3F88D1;
+    box-shadow: 0 10px 25px rgba(63, 136, 209, 0.6); /* Sombra azul suave para o card de saldo */
 }
 
 .nova-movimentacao-container {
@@ -54,11 +130,11 @@ section {
 
 .nova-movimentacao {
     background: #fff;
-    padding: 30px;
+    padding: 40px; /* espaça'o interno generoso para um visual mais limpo */
     width: 100%;
-    max-width: 500px;
+    max-width: 500px; /* largura máxima para evitar que fique muito esticado em telas grandes */
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
 }
 
 .titulo-movimentacao {
@@ -67,21 +143,33 @@ section {
 }
 
 .input-padrao {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    width: 100%;             /* Ocupa 100% da largura */
+    padding: 12px;           /* Aumentamos um pouco para o texto não ficar colado */
+    margin-bottom: 20px;     /* Mais espaço entre um campo e outro */
+    border: 1px solid #ddd;  /* Uma borda mais sutil */
+    border-radius: 10px;     /* Curvatura mais moderna e amigável */
+    font-size: 16px;         /* Tamanho ideal para leitura */
+    transition: 0.3s;        /* Para o efeito de foco que criamos ficar suave */
 }
 
 .btn-adicionar {
     width: 100%;
     padding: 12px;
-    background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
+
+    background: linear-gradient(to bottom, #66bb6a, #43a047);
+}
+.btn-adicionar:hover {
+    background: linear-gradient(to bottom, #43a047, #388e3c); /* Inverte ou escurece as cores */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra ao focar */
+    transform: translateY(-1px); /* Levanta o botão levemente */
+}
+
+.btn-adicionar:active {
+    transform: translateY(2px); /* "Afunda" o botão ao clicar */
 }
 
 .historico-container {
@@ -129,12 +217,41 @@ section {
 }
 
 .lista-movimentacoes li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background: #f9f9f9;
-    padding: 10px;
+    padding: 15px;
     margin-bottom: 10px;
     border-radius: 6px;
     font-size: 14px;
 }
+
+/* Opcional: Deixar o valor em negrito para destacar */
+/* Estilo para organizar as colunas */
+.info-data {
+    flex: 1;           /* Ocupa 1 parte */
+    min-width: 90px;   /* Garante que a data não quebre */
+    color: #666;       /* Tom de cinza mais discreto */
+}
+
+.info-descricao {
+    flex: 2.5;     /* Ocupa 3 partes (é a coluna principal) */
+    font-weight: 500;  /* Leve destaque no texto */
+}
+
+.info-categoria {
+    flex: 1.5;        /* Ocupa um pouco mais que a data */
+    color: #888;
+    font-size: 0.9em;
+}
+
+.info-valor {
+    flex: 1;          /* Ocupa 1 parte */
+    text-align: right;/* Alinha o dinheiro na direita */
+    font-weight: bold;
+}
+
 
 .total-container {
     display: flex;
@@ -220,4 +337,27 @@ section {
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* Efeito de destaque ao clicar no campo vai criar uma borda ao redor */
+.input-padrao:focus {
+    outline: none; /* Remove a linha padrão do navegador */
+    border-color: #3F88D1; /* Cor azul do seu card de Saldo */
+    box-shadow: 0 0 8px rgba(63, 136, 209, 0.3); /* Sombra azul suave para destacar o campo do formulário */
+    transition: 0.3s; /* Faz o brilho aparecer suavemente */
+}
+
+
+
+
+/* Classe para as Entradas */
+.classe-entrada {
+    border-left: 5px solid #2e7d32; /* Barra verde grossa na esquerda */
+    background-color: #f1f8e9 !important; /* Um fundo verde bem clarinho */
+}
+
+/* Classe para as Saídas */
+.classe-saida {
+    border-left: 5px solid #c62828; /* Barra vermelha grossa na esquerda */
+    background-color: #ffeeee !important; /* Um fundo vermelho bem clarinho */
 }
